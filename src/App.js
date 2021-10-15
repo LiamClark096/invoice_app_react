@@ -10,6 +10,7 @@ import ViewInvoice from "./components/viewInvoice/ViewInvoice";
 import EditInvoice from "./components/editInvoice/EditInvoice";
 import getFirebase from "./firebase";
 import SignInForm from "./components/auth/Login";
+import CreateInvoice from "./components/createInvoice/CreateInvoice";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -57,6 +58,14 @@ function App() {
         <>
           <NavBar onThemeToggle={handleThemeToggle} />
           <Switch>
+          <Route
+              path="/invoices/new"
+              render={() => (
+                <CreateInvoice
+                  deviceWidth={deviceWidth}
+                />
+              )}
+            />
             <Route
               path="/invoices/edit/:id"
               render={(props) => (
@@ -95,6 +104,7 @@ function App() {
                 />
               )}
             />
+            
           </Switch>
         </>
       ) : (

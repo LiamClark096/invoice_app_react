@@ -46,7 +46,7 @@ export default function Item({ item, onItemsChange, idx }) {
         area={"name"}
         type={"text"}
         name={"name"}
-        label={"Item Name"}
+        label={"Megnevezés"}
         value={editedItem.name}
         onChange={handleItemChange}
       />
@@ -54,7 +54,7 @@ export default function Item({ item, onItemsChange, idx }) {
         area={"qty"}
         type={"number"}
         name={"quantity"}
-        label={"Qty."}
+        label={"Menny."}
         value={editedItem.quantity}
         onChange={handleItemChange}
       />
@@ -62,7 +62,7 @@ export default function Item({ item, onItemsChange, idx }) {
         area={"price"}
         type={"number"}
         name={"price"}
-        label={"Price"}
+        label={"Ár"}
         value={editedItem.price}
         onChange={handleItemChange}
       />
@@ -70,7 +70,7 @@ export default function Item({ item, onItemsChange, idx }) {
         area={"total"}
         type={"number"}
         name={"total"}
-        label={"Total"}
+        label={"Összesen"}
         value={editedItem.total}
         onChange={handleItemChange}
         noBg

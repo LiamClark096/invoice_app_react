@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router';
 import styled, { css } from 'styled-components';
 import FilterBox from './FilterBox';
 
@@ -108,6 +109,7 @@ export default function InvoiceHeader({ count }) {
   const [deviceWidth, setDeviceWidth] = useState(window.innerWidth);
   const filterOptions = ["draft", "pending", "paid"];
   const [activeFilter, setActiveFilter] = useState("");
+  const history = useHistory();
 
   function handleFilterBox() {
     filterBox ? setFilterBox(false) : setFilterBox(true);
@@ -145,7 +147,7 @@ export default function InvoiceHeader({ count }) {
           onFilterSelect={handleFilterSelect}
         />
       </FilterContainer>
-      <ButtonContainer width={deviceWidth}>
+      <ButtonContainer width={deviceWidth} onClick={() => history.push('invoices/new')}>
         <AddIconContainer>
           <AddIcon>
             <path d="M6.313 10.023v-3.71h3.71v-2.58h-3.71V.023h-2.58v3.71H.023v2.58h3.71v3.71z" fill="#7C5DFA" fillRule="nonzero"/>
