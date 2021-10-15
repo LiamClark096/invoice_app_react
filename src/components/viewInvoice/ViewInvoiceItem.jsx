@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { formatMoney } from "../../helpers";
+// import { formatMoney } from "../../helpers";
 
 const Container = styled.div`
   display: grid;

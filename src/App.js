@@ -51,10 +51,10 @@ function App() {
   }, []);
 
   return (
-    <>
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <GlobalStyles />
       {currentUser ? (
-        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-          <GlobalStyles />
+        <>
           <NavBar onThemeToggle={handleThemeToggle} />
           <Switch>
             <Route
@@ -96,11 +96,11 @@ function App() {
               )}
             />
           </Switch>
-        </ThemeProvider>
+        </>
       ) : (
         <SignInForm />
       )}
-    </>
+    </ThemeProvider>
   );
 }
 

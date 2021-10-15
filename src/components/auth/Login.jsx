@@ -2,23 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import getFirebase from "../../firebase";
 import useInput from "../utils/useInput";
-
-const Title = styled.h1`
-  color: ${props => props.theme.fontPriColor};
-  font-size: 40px;
-  font-weight: 700;
-  letter-spacing: 0.63px;
-  margin-bottom: 5px;
-  transition: color .2s;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  line-height: 48px;
-  text-align: center;
-
-  @media(min-width: 768px) {
-    font-size: 32px;
-  }
-`
+import deer from "../../assets/deer.svg";
+import "./Login.css"
 
 const SignInForm = () => {
   const firebaseInstance = getFirebase();
@@ -34,7 +19,7 @@ const SignInForm = () => {
           .auth()
           .signInWithEmailAndPassword(email.value, password.value);
         console.log("user", user);
-        alert("Welcome back!");
+        // alert("Welcome back!");
       }
     } catch (error) {
       console.log("error", error);
@@ -42,16 +27,44 @@ const SignInForm = () => {
   };
 
   return (
-    <FormWrapper onSubmit={signIn}>
-      <Title>Sign in</Title>
-      <Input placeholder="Email" {...email} />
-      <Input placeholder="Password" type="password" {...password} />
-      <Button type="submit">Sign in</Button>
-    </FormWrapper>
+    <AppContainer>
+        <img src={deer} alt="" className="svg-color"/>
+        <FormWrapper onSubmit={signIn}>
+          <Title>Bejelentkezés</Title>
+          <Input placeholder="Email" {...email} />
+          <Input placeholder="Password" type="password" {...password} />
+          <Button type="submit">Bejelentkezés</Button>
+        </FormWrapper>
+    </AppContainer>
   );
 };
 
 export default SignInForm;
+
+const AppContainer = styled.div`
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  display: flex;
+`;
+
+const Title = styled.h1`
+  color: ${(props) => props.theme.fontPriColor};
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 0.63px;
+  margin-bottom: 5px;
+  transition: color 0.2s;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 48px;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 32px;
+  }
+`;
 
 const FormWrapper = styled.form`
   display: grid;
@@ -60,13 +73,11 @@ const FormWrapper = styled.form`
   padding-bottom: 50px;
 `;
 
-
 const Input = styled.input`
   background: rgba(255, 255, 255, 0.2);
   border-radius: 30px;
   padding: 10px 20px;
   background-blend-mode: overlay;
-  background: rgba(255, 255, 255, 0.2);
   box-shadow: 0px 20px 40px rgba(31, 47, 71, 0.25),
     0px 1px 5px rgba(0, 0, 0, 0.1), inset 0 0 0 0.5px rgba(255, 255, 255, 0.4);
   border: 1px solid rgba(250, 250, 250, 0.4);

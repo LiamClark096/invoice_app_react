@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import ViewInvoiceItem from "./ViewInvoiceItem";
-import { formatMoney } from "../../helpers";
+// import { formatMoney } from "../../helpers";
 
 const Container = styled.div`
   grid-column: 1 / 6;
