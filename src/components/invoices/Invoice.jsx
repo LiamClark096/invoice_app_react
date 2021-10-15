@@ -69,7 +69,7 @@ const Total = styled.p`
   transition: color 0.2s;
 
   &::before {
-    content: "£ ";
+    content: "Ft. ";
   }
 `;
 

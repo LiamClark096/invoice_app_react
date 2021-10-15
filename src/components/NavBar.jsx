@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useDetectOutsideClick } from "./utils/useDetectOutsideClick";
+import SignOutButton from "./auth/SignOut";
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.navBg};
@@ -99,6 +101,10 @@ const Avatar = styled.img`
 `;
 
 export default function NavBar({ onThemeToggle }) {
+  const dropdownRef = useRef(null);
+  const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
+  const onClick = () => setIsActive(!isActive);
+
   return (
     <Container>
       <LogoContaier>
@@ -130,9 +136,10 @@ export default function NavBar({ onThemeToggle }) {
           </svg>
         </div>
       </ThemeButton>
-      <AvatarContainer>
-        <Avatar src={"./assets/image-avatar.jpg"} />
+      <AvatarContainer onClick={onClick}>
+        <Avatar src={"./assets/default.jpg"} />
       </AvatarContainer>
+      <SignOutButton />
     </Container>
   );
 }
