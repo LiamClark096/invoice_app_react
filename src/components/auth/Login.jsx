@@ -27,7 +27,7 @@ const SignInForm = () => {
   };
 
   return (
-    <AppContainer>
+    <AppContainer className="loginContainer">
         <img src={deer} alt="" className="svg-color"/>
         <FormWrapper onSubmit={signIn}>
           <Title>Bejelentkezés</Title>
